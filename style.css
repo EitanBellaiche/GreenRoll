@@ -895,6 +895,89 @@ h1 {
   gap: 18px;
 }
 
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-item {
+  position: relative;
+  padding: 0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.faq-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.68)),
+    var(--panel-image, url("./52f8b5aa-f52e-4f9c-8841-0a3f604f571b.jpeg"));
+  background-size: cover;
+  background-position: center;
+  opacity: 0.38;
+}
+
+.faq-item:nth-child(odd) {
+  --panel-image: url("./bf5d4e0b-1eea-4f8c-b48b-c0177d71c18d.jpeg");
+}
+
+.faq-item:nth-child(even) {
+  --panel-image: url("./WhatsApp Image 2026-05-25 at 22.45.59 (1).jpeg");
+}
+
+.faq-item summary {
+  position: relative;
+  display: block;
+  padding: 22px 56px 22px 22px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::before,
+.faq-item summary::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  width: 14px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent-dark);
+  transform: translateY(-50%);
+  transition: transform 0.24s ease, opacity 0.24s ease;
+}
+
+.faq-item summary::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.faq-item[open] summary::after {
+  opacity: 0;
+  transform: translateY(-50%) rotate(90deg) scaleX(0.3);
+}
+
+.faq-item p {
+  margin: 0;
+  padding: 0 22px 22px;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
 .card {
   padding: 24px;
   transition: transform 0.24s ease, box-shadow 0.24s ease;
@@ -1220,6 +1303,19 @@ input {
 }
 
 @media (max-width: 720px) {
+  .faq-item::before {
+    opacity: 0.46;
+  }
+
+  .faq-item summary {
+    padding: 18px 50px 18px 18px;
+    font-size: 1rem;
+  }
+
+  .faq-item p {
+    padding: 0 18px 18px;
+  }
+
   .hero-copy::before,
   .feature-card::before,
   .card::before,
@@ -1332,6 +1428,27 @@ input {
 }
 
 @media (max-width: 480px) {
+  .faq-item {
+    border-radius: 20px;
+  }
+
+  .faq-item::before {
+    opacity: 0.52;
+  }
+
+  .faq-item summary {
+    padding: 17px 46px 17px 16px;
+  }
+
+  .faq-item summary::before,
+  .faq-item summary::after {
+    left: 18px;
+  }
+
+  .faq-item p {
+    padding: 0 16px 16px;
+  }
+
   .hero-copy::before,
   .feature-card::before,
   .card::before,
