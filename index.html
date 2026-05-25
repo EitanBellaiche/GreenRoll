@@ -32,14 +32,15 @@
 
           <section class="hero-video">
             <video
+              id="heroVideo"
               class="hero-video-player"
               src="./22e203f1-0d66-4346-bdf5-40d61c9bef85.mp4"
               poster="./-סינטטי-טרויה-e1664697356788.jpg"
+              preload="auto"
               autoplay
               muted
               loop
               playsinline
-              controls
             ></video>
           </section>
 
@@ -394,6 +395,7 @@
       const areaResult = document.getElementById("areaResult");
       const priceResult = document.getElementById("priceResult");
       const pricePerMeter = 55;
+      const heroVideo = document.getElementById("heroVideo");
       const lightbox = document.getElementById("lightbox");
       const lightboxImage = document.getElementById("lightboxImage");
       const lightboxClose = document.getElementById("lightboxClose");
@@ -413,6 +415,32 @@
       lengthInput.addEventListener("input", updateCalculator);
       widthInput.addEventListener("input", updateCalculator);
       updateCalculator();
+
+      function ensureHeroVideoPlayback() {
+        if (!heroVideo) return;
+
+        heroVideo.muted = true;
+        heroVideo.defaultMuted = true;
+
+        const playPromise = heroVideo.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => {});
+        }
+      }
+
+      if (heroVideo) {
+        heroVideo.autoplay = true;
+        heroVideo.playsInline = true;
+
+        heroVideo.addEventListener("loadeddata", ensureHeroVideoPlayback);
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "visible") {
+            ensureHeroVideoPlayback();
+          }
+        });
+
+        ensureHeroVideoPlayback();
+      }
 
       function openLightbox(src, alt) {
         lightboxImage.src = src;
