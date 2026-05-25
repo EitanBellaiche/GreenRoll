@@ -220,9 +220,8 @@ img {
 .hero-video-player {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  min-height: 220px;
-  max-height: 68vh;
+  min-height: 300px;
+  max-height: 72vh;
   border-radius: 20px;
   background: #102114;
   object-fit: cover;
@@ -837,7 +836,7 @@ input {
   }
 
   .hero-video-player {
-    min-height: 200px;
+    min-height: 240px;
     border-radius: 18px;
   }
 
@@ -935,7 +934,7 @@ input {
   }
 
   .hero-video-player {
-    min-height: 180px;
+    min-height: 210px;
   }
 
   .media-thumbs {
