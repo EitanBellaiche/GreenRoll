@@ -419,6 +419,13 @@ h1 {
   font-size: 1.02rem;
 }
 
+.section-intro,
+.search-support-copy {
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
 .lead {
   margin: 18px 0 0;
   max-width: 58ch;
@@ -561,6 +568,11 @@ h1 {
   color: var(--muted);
   font-size: 0.95rem;
   line-height: 1.7;
+}
+
+.search-support-copy {
+  margin: 10px 0 0;
+  max-width: 58ch;
 }
 
 .btn {
@@ -831,6 +843,11 @@ h1 {
   letter-spacing: -0.02em;
 }
 
+.section-intro {
+  margin: -2px 0 18px;
+  max-width: 72ch;
+}
+
 .trust-band {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -881,6 +898,10 @@ h1 {
 
 .feature-card-wide {
   grid-column: span 2;
+}
+
+.use-case-grid .feature-card-wide {
+  grid-column: span 3;
 }
 
 .feature-card h3 {
