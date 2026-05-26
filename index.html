@@ -50,6 +50,31 @@
       }
       gtag("js", new Date());
       gtag("config", "AW-18189261759");
+
+      function gtag_report_conversion(url, target, callbackOverride) {
+        const callback = function () {
+          if (typeof callbackOverride === "function") {
+            callbackOverride();
+            return;
+          }
+
+          if (typeof url === "undefined") return;
+
+          if (target === "_blank") {
+            window.open(url, "_blank", "noopener");
+            return;
+          }
+
+          window.location = url;
+        };
+
+        gtag("event", "conversion", {
+          send_to: "AW-18189261759/DAo1CLnyvbMcEL-3qOFD",
+          event_callback: callback,
+        });
+
+        return false;
+      }
     </script>
     <script type="application/ld+json">
       {
@@ -753,6 +778,32 @@
 
       lightboxClose.addEventListener("click", closeLightbox);
       lightboxBackdrop.addEventListener("click", closeLightbox);
+
+      document.querySelectorAll('a[href^="tel:"], a[href*="wa.me/"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          if (typeof gtag_report_conversion !== "function") return;
+
+          const href = link.getAttribute("href");
+          if (!href) return;
+          let hasNavigated = false;
+
+          const navigateToContact = () => {
+            if (hasNavigated) return;
+            hasNavigated = true;
+
+            if (link.getAttribute("target") === "_blank") {
+              window.open(href, "_blank", "noopener");
+              return;
+            }
+
+            window.location = href;
+          };
+
+          event.preventDefault();
+          gtag_report_conversion(href, link.getAttribute("target"), navigateToContact);
+          window.setTimeout(navigateToContact, 1200);
+        });
+      });
 
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && !lightbox.hidden) {
