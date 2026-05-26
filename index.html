@@ -45,13 +45,20 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18189261759"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "AW-18189261759");
+      window.gtag =
+        window.gtag ||
+        function gtag() {
+          window.dataLayer.push(arguments);
+        };
 
-      function gtag_report_conversion(url, target, callbackOverride) {
+      window.gtag("js", new Date());
+      window.gtag("config", "AW-18189261759");
+
+      window.gtag_report_conversion = function gtag_report_conversion(
+        url,
+        target,
+        callbackOverride
+      ) {
         const callback = function () {
           if (typeof callbackOverride === "function") {
             callbackOverride();
@@ -68,13 +75,13 @@
           window.location = url;
         };
 
-        gtag("event", "conversion", {
+        window.gtag("event", "conversion", {
           send_to: "AW-18189261759/DAo1CLnyvbMcEL-3qOFD",
           event_callback: callback,
         });
 
         return false;
-      }
+      };
     </script>
     <script type="application/ld+json">
       {
@@ -376,40 +383,6 @@
 
         <section class="section">
           <div class="section-heading">
-            <span>התאמה לשטח</span>
-            <h2>דשא סינטטי לגינה, למרפסת, לגג ולחצר</h2>
-          </div>
-          <p class="section-intro">
-            דגם טרויה מתאים למגוון שימושים נפוצים בישראל, כולל דשא סינטטי לגינה פרטית,
-            דשא סינטטי למרפסת שמש, דשא סינטטי לגג, חצרות, אזורי אירוח וגם שטחים מסחריים
-            קטנים.
-          </p>
-
-          <div class="feature-grid use-case-grid">
-            <article class="feature-card">
-              <h3>דשא סינטטי לגינה</h3>
-              <p>מתאים לגינה ביתית עם תחושה טבעית, מראה מלא ותחזוקה פשוטה יותר.</p>
-            </article>
-            <article class="feature-card">
-              <h3>דשא סינטטי למרפסת</h3>
-              <p>יוצר מראה נקי ונעים למרפסת, במיוחד בדירות ובחללי אירוח חיצוניים.</p>
-            </article>
-            <article class="feature-card">
-              <h3>דשא סינטטי לגג</h3>
-              <p>פתרון טוב לגגות ופינות ישיבה שבהם רוצים מראה ירוק ומסודר יותר.</p>
-            </article>
-            <article class="feature-card feature-card-wide">
-              <h3>דשא סינטטי לחצר ולעסק</h3>
-              <p>
-                מתאים גם לחצר פרטית, כניסה לעסק, קליניקה, משרד או אזור קבלת קהל שרוצים
-                לשדר מראה ירוק ואסתטי.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-heading">
             <span>על הדשא</span>
             <h2>דשא טרויה עם מראה טבעי וצפוף</h2>
           </div>
@@ -439,27 +412,6 @@
 
         <section class="section">
           <div class="section-grid details-grid">
-            <article class="card accent-card">
-              <div class="section-heading left-align">
-                <span>מה חשוב לדעת</span>
-                <h2>דגשים לפני שמזמינים את דשא טרויה</h2>
-              </div>
-              <div class="detail-list">
-                <div class="detail-item">
-                  <strong>מראה טבעי ועשיר</strong>
-                  <span>שילוב גוונים ומבנה סיבים שמעניקים תחושה מלאה ונקייה יותר בשטח.</span>
-                </div>
-                <div class="detail-item">
-                  <strong>חיתוך לפי מידה</strong>
-                  <span>מתאים במיוחד למי שרוצה תכנון מסודר יותר והתקנה מדויקת יותר.</span>
-                </div>
-                <div class="detail-item">
-                  <strong>מתאים למגוון חללים</strong>
-                  <span>פתרון טוב לגינה, מרפסת, גג, חצר פרטית או שטח מסחרי קטן.</span>
-                </div>
-              </div>
-            </article>
-
             <article class="card process-card">
               <div class="section-heading left-align">
                 <span>תהליך קצר</span>
@@ -528,7 +480,7 @@
         <section class="section">
           <div class="section-heading">
             <span>שאלות נפוצות</span>
-            <h2>מה חשוב לדעת לפני הזמנה</h2>
+            <h2>שאלות נפוצות לפני הזמנה</h2>
           </div>
 
           <div class="faq-list">
@@ -564,42 +516,6 @@
           </div>
         </section>
 
-        <section class="section">
-          <div class="bottom-cta">
-            <article class="card contact-panel">
-              <div class="section-heading left-align">
-                <span>יצירת קשר</span>
-                <h2>רוצים להזמין דשא טרויה?</h2>
-              </div>
-              <p class="card-text">
-                שלחו מידה, תמונה או תיאור של השטח, ונעזור לכם לחשב את הכמות בצורה פשוטה
-                ומהירה.
-              </p>
-              <div class="contact-points">
-                <div class="contact-point">
-                  <strong>מתאים גם ללקוחות פרטיים וגם לעסקים</strong>
-                  <span>גינות, מרפסות, גגות, אזורי אירוח ושטחי כניסה.</span>
-                </div>
-                <div class="contact-point">
-                  <strong>שירות מהיר וברור</strong>
-                  <span>בלי טפסים מיותרים, פשוט שולחים פרטים ומקבלים מענה.</span>
-                </div>
-              </div>
-              <a class="phone" href="tel:0527090776">052-709-0776</a>
-              <div class="cta-row compact">
-                <a class="btn btn-primary" href="tel:0527090776">שיחה ישירה</a>
-                <a
-                  class="btn btn-secondary"
-                  href="https://wa.me/972527090776?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%93%D7%A9%D7%90%20%D7%98%D7%A8%D7%95%D7%99%D7%94"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  הודעת וואטסאפ
-                </a>
-              </div>
-            </article>
-          </div>
-        </section>
       </main>
 
       <div class="sticky-contact" aria-label="יצירת קשר מהירה">
